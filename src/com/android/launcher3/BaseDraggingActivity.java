@@ -17,6 +17,7 @@
 package com.android.launcher3;
 
 import android.app.ActivityOptions;
+import android.app.UiModeManager;
 import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -30,7 +31,6 @@ import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.ActionMode;
-import android.view.Surface;
 import android.view.View;
 import android.widget.Toast;
 
@@ -70,6 +70,8 @@ public abstract class BaseDraggingActivity extends BaseActivity
 
     private DisplayRotationListener mRotationListener;
 
+    private UiModeManager mUiModeManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +86,7 @@ public abstract class BaseDraggingActivity extends BaseActivity
             mThemeRes = themeRes;
             //setTheme(themeRes);
         }
+        mUiModeManager = this.getSystemService(UiModeManager.class);
         updateTheme(wallpaperColorInfo);
     }
 
