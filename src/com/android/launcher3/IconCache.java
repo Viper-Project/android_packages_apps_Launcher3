@@ -137,6 +137,14 @@ public class IconCache {
         } else {
             mHighResOptions = null;
         }
+
+        mIconsHandler = new IconsHandler(context, -1/*default con size*/, 1.0f);
+        setIconPack();
+    }
+
+    public void setIconPack() {
+        mIconsHandler.updatePrefs(Utilities.getPrefs(mContext)
+                .getString("pref_iconPackPackage", ""));
     }
 
     private Drawable getFullResDefaultActivityIcon() {
@@ -193,6 +201,10 @@ public class IconCache {
     }
 
     public Drawable getFullResIcon(LauncherActivityInfo info, boolean flattenDrawable) {
+        Drawable iconDrawable = mIconsHandler.getIconFromHandler(mContext, info);
+        if (iconDrawable != null) {
+            return iconDrawable;
+        }
         return mIconProvider.getIcon(info, mIconDpi, flattenDrawable);
     }
 
@@ -477,14 +489,11 @@ public class IconCache {
         if (entry == null) {
             entry = new CacheEntry();
             LauncherIcons li = LauncherIcons.obtain(mContext);
-            Drawable iconDrawable = getFullResIcon(app);
-            IconPack iconPack = IconPackProvider.loadAndGetIconPack(mContext);
-            if (iconPack != null) {
-                Drawable iconPackDrawable = iconPack.getIcon(app, iconDrawable, app.getLabel());
-                if (iconPackDrawable != null) {
-                    iconDrawable = iconPackDrawable;
-                }
+            Drawable iconDrawable = mIconsHandler.getIconFromHandler(mContext, app);
+            if (iconDrawable == null) {
+                iconDrawable = getFullResIcon(app);
             }
+
             li.createBadgedIconBitmap(iconDrawable, app.getUser(),
                     app.getApplicationInfo().targetSdkVersion).applyTo(entry);
             li.recycle();
@@ -662,13 +671,9 @@ public class IconCache {
 
                 if (info != null) {
                     LauncherIcons li = LauncherIcons.obtain(mContext);
-                    Drawable iconDrawable = getFullResIcon(info);
-                    IconPack iconPack = IconPackProvider.loadAndGetIconPack(mContext);
-                    if (iconPack != null) {
-                        Drawable iconPackDrawable = iconPack.getIcon(info, iconDrawable, info.getLabel());
-                        if (iconPackDrawable != null) {
-                            iconDrawable = iconPackDrawable;
-                        }
+                    Drawable iconDrawable = mIconsHandler.getIconFromHandler(mContext, info);
+                    if (iconDrawable == null) {
+                        iconDrawable = getFullResIcon(info);
                     }
                     li.createBadgedIconBitmap(iconDrawable, info.getUser(),
                             info.getApplicationInfo().targetSdkVersion).applyTo(entry);
@@ -773,14 +778,9 @@ public class IconCache {
                     LauncherIcons li = LauncherIcons.obtain(mContext);
                     // Load the full res icon for the application, but if useLowResIcon is set, then
                     // only keep the low resolution icon instead of the larger full-sized icon
-                    Drawable iconDrawable = appInfo.loadIcon(mPackageManager);
-                    IconPack iconPack = IconPackProvider.loadAndGetIconPack(mContext);
-                    if (iconPack != null) {
-                        // get first one matching packageName
-                        Drawable iconPackDrawable = iconPack.getIcon(packageName, iconDrawable, entry.title);
-                        if (iconPackDrawable != null) {
-                            iconDrawable = iconPackDrawable;
-                        }
+                    Drawable iconDrawable = mIconsHandler.getIconFromHandler(mContext, appInfo, packageName);
+                    if (iconDrawable == null) {
+                        iconDrawable = appInfo.loadIcon(mPackageManager);
                     }
                     BitmapInfo iconInfo = li.createBadgedIconBitmap(
                             iconDrawable, user, appInfo.targetSdkVersion,
