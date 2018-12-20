@@ -154,6 +154,8 @@ public final class Utilities {
     public static final String DATE_FORMAT_KEY = "pref_date_format";
     public static final String DATE_STYLE_TRANSFORM = "pref_date_transform";
     public static final String DATE_STYLE_SPACING = "pref_date_spacing";
+    public static final String SHOW_WORKSPACE_GRADIENT = "pref_show_workspace_grad";
+    public static final String SHOW_HOTSEAT_GRADIENT = "pref_show_hotseat_grad";
 
     public static boolean useNotificationsGesture(Context context) {
         return getPrefs(context).getBoolean(PREF_NOTIFICATIONS_GESTURE, true);
@@ -186,6 +188,14 @@ public final class Utilities {
     public static boolean forceLegacyIconMask(Context context) {
         SharedPreferences prefs = getPrefs(context.getApplicationContext());
         return prefs.getBoolean(Icons.KEY_PREF_LEGACY_ICON_MASK, false);
+    }
+
+    public static boolean showWorkspaceGradient(Context context) {
+        return getPrefs(context).getBoolean(SHOW_WORKSPACE_GRADIENT, true);
+    }
+
+    public static boolean showHotseatGradient(Context context) {
+        return getPrefs(context).getBoolean(SHOW_HOTSEAT_GRADIENT, true);
     }
 
     public static float getIconSizeModifier(Context context) {
