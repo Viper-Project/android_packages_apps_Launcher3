@@ -49,7 +49,7 @@ import com.android.launcher3.qsb.configs.QsbConfiguration;
 import com.android.launcher3.qsb.search.DefaultSearchView;
 import com.android.launcher3.search.SearchThread;
 
-import com.android.internal.util.pixys.PixysUtils;
+import com.android.internal.util.viper.Utils;
 
 public class AllAppsQsbView extends BaseQsbView implements SearchUiManager, OnChangeListener {
 
@@ -248,7 +248,7 @@ public class AllAppsQsbView extends BaseQsbView implements SearchUiManager, OnCh
     }
 
     protected void setSearchType() {
-        boolean useDefaultSearch = !PixysUtils.isPackageInstalled(Launcher.getLauncher(mContext), LauncherCallbacks.SEARCH_PACKAGE);
+        boolean useDefaultSearch = !Utils.isPackageInstalled(Launcher.getLauncher(mContext), LauncherCallbacks.SEARCH_PACKAGE);
         if (mUseDefaultSearch != useDefaultSearch) {
             removeDefaultView();
             mUseDefaultSearch = useDefaultSearch;

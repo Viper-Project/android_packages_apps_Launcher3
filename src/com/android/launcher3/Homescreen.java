@@ -156,7 +156,7 @@ public class Homescreen extends SettingsActivity implements PreferenceFragment.O
             });
 
             ListPreference searchProvider = (ListPreference) findPreference(Utilities.SEARCH_PROVIDER_KEY);
-            if (PixysUtils.isPackageInstalled(mContext, LauncherTab.SEARCH_PACKAGE)) {
+            if (Utils.isPackageInstalled(mContext, LauncherTab.SEARCH_PACKAGE)) {
                 getPreferenceScreen().removePreference(searchProvider);
             } else {
                 searchProvider.setSummary(searchProvider.getEntry());
