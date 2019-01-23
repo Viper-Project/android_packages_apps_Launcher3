@@ -58,6 +58,9 @@ public class QuickEventsController {
         initQuickEvents();
     }
 
+    public void destroy() {
+    }
+
     public void initQuickEvents() {
         mIsFirstTimeDone = Settings.System.getInt(mContext.getContentResolver(), SETTING_DEVICE_INTRO_COMPLETED, 0) != 0;
         deviceIntroEvent();
