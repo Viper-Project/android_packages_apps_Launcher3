@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--  Copyright (C) 2018 The OmniROM Project
+<!--
+     Copyright (C) 2018 The OmniROM Project
+     Copyright (C) 2018 ViperOS Project
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+          http://www.apache.org/licenses/LICENSE-2.0
 
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
 -->
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -96,5 +97,67 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <!-- Show searchbar -->
     <string name="show_searchbar_title">Mostrar barra de pesquisa</string>
     <string name="show_searchbar_summary">Mostrar a barra de pesquisa na tela inicial</string>
+
+    <!-- QuickSpace -->
+    <string name="abbrev_wday_month_day_no_year">EEEMMMd</string>
+    <!-- QuickSpace: QuickEvent: Device Intro Event -->
+    <string name="quick_event_rom_intro_welcome">Bem vindo a ViperOS</string>
+    <string name="quick_event_rom_intro_learn">Toque para começar</string>
+
+    <!-- QSB -->
+    <string name="hotseat_qsb_preferences">Preferências</string>
+    <string name="label_search">Procurar</string>
+    <string name="label_voice_search">Procura por voz</string>
+
+    <!-- Hide/Show search bars -->
+    <string name="bottom_search_bar_title">Mostrar barra de pesquisa na parte inferior</string>
+    <string name="bottom_search_bar_summary">Mostrar a barra de pesquisa no Dock</string>
+
+    <!-- Search engine -->
+    <string name="search_provider_title">Mecanismo de pesquisa da barra de pesquisa</string>
+
+    <!-- Predictions -->
+    <string name="suggestion_pref_screen_title">Sugestões</string>
+    <string name="suggestion_pref_screen_desc">Para visão geral &amp; Lista de todos os apps</string>
+    <string name="app_suggestions_title">Exibir sugestões de aplicativos</string>
+    <string name="app_suggestions_summary">No topo da sua lista Todos os apps</string>
+    <string name="title_disable_suggestions_prompt">Desativar sugestões de aplicativos?</string>
+    <string name="msg_disable_suggestions_prompt">"As sugestões não aparecerão no topo da sua lista de aplicativos e os dados de uso usados para criá-las serão permanentemente apagados."</string>
+    <string name="label_turn_off_suggestions">DESLIGAR</string>
+    <string name="all_apps_label">Todos os Apps</string>
+
+    <!-- QuickSpace Date format -->
+    <string name="date_format_title">Formato de data</string>
+    <string name="date_format_long_name">Longo</string>
+    <string name="date_format_normal_name">Normal</string>
+    <string name="date_format_short_name">Curto</string>
+    <string name="date_format_daydate_long_name">Dia (com número)</string>
+    <string name="date_format_daydate_short_name">Dia (curto com número)</string>
+    <string name="date_format_dayonly_name">Somente hoje</string>
+
+    <!-- At a glance uppercase -->
+    <string name="date_style_transform_title">Mostrar maiúsculas na data</string>
+    <string name="date_style_transform_summary">Transforme toda a data/at a glance com texto em maiúsculas</string>
+
+    <!-- At a glance font spacing -->
+    <string name="date_style_spacing">Espaçamento entre datas</string>
+    <string name="date_style_spacing_normal">Normal</string>
+    <string name="date_style_spacing_barely">Quase imperceptível</string>
+    <string name="date_style_spacing_aesthetic">Estético</string>
+    <string name="date_style_spacing_ott">Acima do topo</string>
+
+    <!-- Gradients on Workspace/Hotseat? -->
+    <string name="workspace_gradient_title">Mostrar gradiente no topo</string>
+    <string name="workspace_gradient_summary">Ativar um gradiente sutil na barra de status</string>
+    <string name="hotseat_gradient_title">Mostrar gradiente na parte inferior</string>
+    <string name="hotseat_gradient_summary">Ativar um gradiente sutil na dock do launcher</string>
+
+    <!-- Recents corned -->
+    <string name="custom_recents_corners_switch_title">Usar cantos arredondados personalizados</string>
+    <string name="custom_recents_corners_switch_summary">Se desativado, ele usará aquele fornecido pelo sistema/tema. Para aplicar o novo valor, vá para a home depois de selecionar sua opção.</string>
+    <string name="custom_recents_corners_type_title">Custom recents roundness</string>
+    <string name="custom_recents_corners_type_default">Padrão</string>
+    <string name="custom_recents_corners_type_card">Cartão Arredondado</string>
+    <string name="custom_recents_corners_type_op">Estilo OP</string>
 
 </resources>

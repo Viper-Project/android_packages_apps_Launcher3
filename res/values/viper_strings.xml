@@ -158,7 +158,7 @@
     <string name="date_style_spacing">Date spacing</string>
     <string name="date_style_spacing_normal">Normal</string>
     <string name="date_style_spacing_barely">Barely noticeable</string>
-    <string name="date_style_spacing_aesthetic" translatable="false">A e s t h e t i c</string>
+    <string name="date_style_spacing_aesthetic">A e s t h e t i c</string>
     <string name="date_style_spacing_ott">Over the top</string>
 
     <!-- Gradients on Workspace/Hotseat? -->
