@@ -109,7 +109,7 @@ public class AllAppsBackgroundDrawable extends Drawable {
         mWidth = res.getDimensionPixelSize(R.dimen.all_apps_background_canvas_width);
         mHeight = res.getDimensionPixelSize(R.dimen.all_apps_background_canvas_height);
 
-        final int systemTheme = Settings.System.getInt(context.getContentResolver(), SYSTEM_THEME, 0);
+        final int systemTheme = Settings.System.getInt(context.getContentResolver(), SYSTEM_THEME, 5);
 
         switch (systemTheme) {
             case 1: /*Light Theme*/
@@ -121,7 +121,10 @@ public class AllAppsBackgroundDrawable extends Drawable {
             case 3: /*Black Theme*/
                 context = new ContextThemeWrapper(context, R.style.AllAppsEmptySearchBackground_Black);
                 break;
-            case 4: /*Blue Night Theme*/
+            case 4: /*BlueNight Theme*/
+                context = new ContextThemeWrapper(context, R.style.AllAppsEmptySearchBackground_Black);
+                break;
+            case 5: /*BlackSupreme Theme*/
                 context = new ContextThemeWrapper(context, R.style.AllAppsEmptySearchBackground_Black);
                 break;
             default:
