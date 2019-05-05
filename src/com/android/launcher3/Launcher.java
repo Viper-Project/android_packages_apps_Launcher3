@@ -2621,8 +2621,8 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
     @Override
     public void onExtractedColorsChanged(WallpaperColorInfo wallpaperColorInfo) {
         int alpha = getResources().getInteger(R.integer.extracted_color_gradient_alpha);
-        final int systemTheme = Settings.System.getInt(this.getContentResolver(), SYSTEM_THEME_STYLE, 0);
-        final boolean simonSaysUseDarkTheme = (systemTheme > 1);
+        final int systemTheme = Settings.System.getIntForUser(this.getContentResolver(), SYSTEM_THEME_STYLE, 0, UserHandle.USER_CURRENT);
+        final boolean simonSaysUseDarkTheme = (systemTheme > 0);
         mUiInformation.putInt("background_color_hint", primaryColor(wallpaperColorInfo, this, alpha));
         mUiInformation.putInt("background_secondary_color_hint", secondaryColor(wallpaperColorInfo, this, alpha));
         mUiInformation.putBoolean("is_background_dark", simonSaysUseDarkTheme);
